@@ -42,3 +42,32 @@ ADD 90: Suma el número que está en la dirección de memoria 90 al acumulador.
 OUT: Muestra el valor del acumulador (el resultado de la suma).
 HLT: Termina la ejecución del programa.
 DAT 5: Define el número 5 y lo guarda en la memoria en la dirección 90
+
+## Actividad 2
+nos planteamos estas preguntas durante la clase 
+
+
+- ¿Qué es entonces un programa?
+   Un programa es un conjunto de instrucciones escritas por un programador que le dice a una
+   computadora cómo realizar una tarea específica. Estas instrucciones se escriben en un lenguaje
+   de programación, que puede ser de alto nivel (como Python o Java) o de bajo nivel
+   (como ensamblador o lenguaje de máquina). El propósito de un programa es ejecutar operaciones,
+   procesar datos y producir resultados, ya sea interactuar con el usuario, realizar cálculos,
+   o manipular información.
+- ¿Qué es un lenguaje ensamblador?
+   El lenguaje ensamblador (o assembly) es un lenguaje de programación de bajo nivel que está 
+   muy cerca del lenguaje de máquina, pero más legible para los humanos. A diferencia de los 
+   lenguajes de alto nivel, como Python o Java, que abstraen mucho del hardware, el ensamblador
+   está diseñado para ser una representación más comprensible de las instrucciones que un 
+   procesador entiende. Cada instrucción de ensamblador corresponde a una 
+   operación simple que la CPU puede ejecutar directamente. Para convertir un programa en 
+   ensamblador en un programa ejecutable, se utiliza un ensamblador, que es un tipo de compilador 
+   especializado.
+- ¿Qué es lenguaje de máquina?
+   El lenguaje de máquina es el lenguaje nativo que entiende la CPU de un computador.
+   Está compuesto por secuencias de códigos binarios (0s y 1s), que representan
+   instrucciones específicas para la máquina. Estas instrucciones pueden incluir operaciones
+   aritméticas, movimiento de datos entre registros, control de flujo del programa, entre
+   otras. A diferencia del lenguaje ensamblador, que usa mnemónicos (como ADD o MOV),
+   el lenguaje de máquina se presenta como una serie de números binarios que directamente
+   indican las acciones que debe realizar el hardware de la computadora.
