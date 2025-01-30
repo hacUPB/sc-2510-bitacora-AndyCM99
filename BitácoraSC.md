@@ -142,7 +142,7 @@ nos planteamos estas preguntas durante la clase
    que el programa necesita durante su ejecución. Esto ayuda a la CPU a acceder y procesar 
    rápidamente la información en tiempo real.
 
-   ####Emulador de hardware:
+   #### Emulador de hardware:
    El emulador que se presenta en el capítulo se utiliza para simular el comportamiento de la CPU y otros componentes del sistema,
    como la memoria. El propósito es permitir que los estudiantes comprendan cómo funcionan 
    estos sistemas a nivel de hardware sin necesidad de tener acceso a hardware físico real.
