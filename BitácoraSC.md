@@ -47,14 +47,14 @@ DAT 5: Define el número 5 y lo guarda en la memoria en la dirección 90
 nos planteamos estas preguntas durante la clase 
 
 
-- ¿Qué es entonces un programa?
+####- ¿Qué es entonces un programa?
    Un programa es un conjunto de instrucciones escritas por un programador que le dice a una
    computadora cómo realizar una tarea específica. Estas instrucciones se escriben en un lenguaje
    de programación, que puede ser de alto nivel (como Python o Java) o de bajo nivel
    (como ensamblador o lenguaje de máquina). El propósito de un programa es ejecutar operaciones,
    procesar datos y producir resultados, ya sea interactuar con el usuario, realizar cálculos,
    o manipular información.
-- ¿Qué es un lenguaje ensamblador?
+####- ¿Qué es un lenguaje ensamblador?
    El lenguaje ensamblador (o assembly) es un lenguaje de programación de bajo nivel que está 
    muy cerca del lenguaje de máquina, pero más legible para los humanos. A diferencia de los 
    lenguajes de alto nivel, como Python o Java, que abstraen mucho del hardware, el ensamblador
@@ -63,7 +63,7 @@ nos planteamos estas preguntas durante la clase
    operación simple que la CPU puede ejecutar directamente. Para convertir un programa en 
    ensamblador en un programa ejecutable, se utiliza un ensamblador, que es un tipo de compilador 
    especializado.
-- ¿Qué es lenguaje de máquina?
+####- ¿Qué es lenguaje de máquina?
    El lenguaje de máquina es el lenguaje nativo que entiende la CPU de un computador.
    Está compuesto por secuencias de códigos binarios (0s y 1s), que representan
    instrucciones específicas para la máquina. Estas instrucciones pueden incluir operaciones
@@ -71,3 +71,43 @@ nos planteamos estas preguntas durante la clase
    otras. A diferencia del lenguaje ensamblador, que usa mnemónicos (como ADD o MOV),
    el lenguaje de máquina se presenta como una serie de números binarios que directamente
    indican las acciones que debe realizar el hardware de la computadora.
+
+  
+## Actividad 3
+
+   Al estudiar cómo funciona un PC, entendemos que la CPU usa varios registros para manejar las instrucciones y los datos. 
+   Uno de los más importantes es el PC (Program Counter), que guarda la dirección de la próxima instrucción a ejecutar. Cada 
+   vez que la CPU procesa una instrucción, el PC se actualiza y apunta a la siguiente.
+
+   Cuando la CPU necesita acceder a la memoria, el registro A (Address) se encarga de manejar las direcciones, indicando dónde están las 
+   instrucciones o los datos que necesita. Además, el registro D (Data) guarda temporalmente los datos que la CPU va a procesar.
+
+   En resumen, el PC ayuda a la CPU a seguir el flujo del programa, el A le dice dónde buscar en la memoria, y el D almacena los 
+   datos mientras se procesan. Todo esto funciona de manera coordinada para que el PC pueda 
+   ejecutar las instrucciones de manera eficiente.
+   
+## Actividad 4
+
+
+   ```
+   @100     // Carga el valor 100 en el registro A
+   D = A    // Guarda ese valor en D
+   @32      // Carga la dirección 32 en el registro A
+   M = D    // Guarda el valor de D (100) en la dirección 32 de la RAM
+
+   ```
+
+   Comenzamos a profundizar en el lenguaje ensamblador para comprender cómo funciona el almacenamiento de acceso aleatorio.
+   
+   ####¿Qué es la RAM?
+   La RAM (memoria de acceso aleatorio) es como el espacio de trabajo temporal de la computadora. Guarda datos e instrucciones 
+   que la CPU necesita de inmediato para realizar tareas. Es rápida, pero solo retiene la 
+   información mientras el equipo está encendido. Cuando apagas la computadora, todo lo que está en la RAM se borra.
+
+
+## Actividad 5
+
+
+
+   
+   
