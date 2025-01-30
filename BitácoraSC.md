@@ -107,6 +107,60 @@ nos planteamos estas preguntas durante la clase
 
 ## Actividad 5
 
+   Memoria y almacenamiento de instrucciones:
+
+   El capítulo también explica cómo las instrucciones de un programa se almacenan en la memoria y cómo la CPU las accede
+   para ejecutar el código. Este proceso involucra cargar instrucciones en la memoria RAM desde el 
+   almacenamiento secundario (como el disco duro) para que la CPU las procese.
+   El concepto de "memoria volátil":
+
+   Se discute que la memoria RAM es volátil, lo que significa que pierde su contenido cuando el sistema se apaga. 
+   Este tipo de memoria es rápida y eficiente para el almacenamiento temporal durante la ejecución de 
+   programas, pero no mantiene los datos cuando la energía se corta.
+   Gestión de la memoria en la arquitectura de computadoras:
+
+   Se detalla cómo la memoria está organizada en bloques o celdas, y cómo se usan los registros de memoria para acceder a esas celdas.
+   También se cubre cómo se realizan las operaciones de lectura y escritura en estas 
+   celdas.
+   Construcción de una memoria de acceso aleatorio (RAM):
+
+   A través de ejemplos más prácticos, el capítulo presenta cómo se construye y organiza la memoria RAM a nivel de hardware,
+   usando circuitos electrónicos para implementar el almacenamiento y el acceso a los datos.
+   Memoria de 16-bit:
+
+   El capítulo también cubre cómo se implementa una memoria de 16 bits, explicando cómo se manejan los bits y las palabras de memoria.
+   Esto es importante para entender cómo los sistemas computacionales más simples pueden 
+   gestionar información utilizando varios bits.
+   Acceso a la memoria con instrucciones de ensamblador:
+
+   Se profundiza en cómo las instrucciones en lenguaje ensamblador controlan el acceso a la memoria, mostrando cómo las direcciones 
+   se cargan en los registros y cómo los valores se almacenan en la RAM utilizando 
+   instrucciones como @ y M.
+   El uso de la memoria para datos y programas:
+
+   Se hace hincapié en cómo la memoria no solo se usa para almacenar instrucciones de programas, sino también para manejar datos 
+   que el programa necesita durante su ejecución. Esto ayuda a la CPU a acceder y procesar 
+   rápidamente la información en tiempo real.
+
+   ####Emulador de hardware:
+   El emulador que se presenta en el capítulo se utiliza para simular el comportamiento de la CPU y otros componentes del sistema,
+   como la memoria. El propósito es permitir que los estudiantes comprendan cómo funcionan 
+   estos sistemas a nivel de hardware sin necesidad de tener acceso a hardware físico real.
+
+   El emulador permite simular:
+
+   La ejecución de instrucciones en lenguaje ensamblador.
+   El acceso a la memoria, donde se pueden observar las direcciones de memoria y cómo se almacenan o recuperan los valores.
+   El comportamiento de la RAM y cómo las instrucciones de la CPU afectan a la memoria.
+   El capítulo describe cómo este emulador puede usarse para probar y entender las operaciones de bajo nivel (como las que
+   vimos antes con @ y M) antes de que un programa sea ejecutado en un sistema real. Este tipo de 
+   emulador es una herramienta educativa muy útil para visualizar cómo interactúan los componentes y cómo las instrucciones 
+   se ejecutan paso a paso.
+
+   En resumen, el capítulo sí cubre la idea del emulador como una forma de simular el funcionamiento de la memoria y la CPU, 
+   proporcionando un entorno donde los conceptos de la arquitectura de computadoras se pueden 
+   entender y experimentar de manera más accesible.
+
 
 
    
