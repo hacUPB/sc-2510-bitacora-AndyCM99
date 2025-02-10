@@ -162,6 +162,25 @@ nos planteamos estas preguntas durante la clase
    entender y experimentar de manera más accesible.
 
 
+# Reto
+
+# 1. Comencé con el primer reto, el cual no pude resolver inicialmente sin antes consultar al profesor. Después de recibir
+su orientación, implementé dos líneas simples de código en lenguaje de máquina para lograr el objetivo. Estas líneas fueron:
+
+ ```
+
+ @1978  // Carga el valor 1978 en el registro A
+ D=A    // Copia el valor del registro A al registro D
+
+ ```
+y adjunto una evidencia del proceso con nan2
+
+![image](https://github.com/user-attachments/assets/e41ee833-79db-4d6e-850f-7025f02c8540)
+
+
+
+
+
 
    
    
