@@ -178,6 +178,100 @@ y adjunto una evidencia del proceso con nan2
 ![image](https://github.com/user-attachments/assets/e41ee833-79db-4d6e-850f-7025f02c8540)
 
 
+# 2. Se pide cargar el valor 100 en la posición 69 de la RAM. Para hacerlo, se puede utilizar el siguiente código en ensamblador
+
+ ```
+@100    // Cargar la dirección de memoria 100 en el registro A
+D=A     // Copiar el valor de A (100) a D
+@69     // Cargar la dirección de memoria 69 en el registro A
+M=D     // Almacenar el valor de D (100) en la posición de memoria 69
+
+ ```
+
+Con esto, el valor 100 se almacena correctamente en la posición 69 de la RAM.
+
+![image](https://github.com/user-attachments/assets/9953ab09-babf-4f63-97e6-7ef23bb20f7b)
+
+# 3. basandome en el anteiror, continuo con este 
+
+  Guarda en la posición 200 de la RAM el contenido de la posición 24 de la RAM
+  Este ejercicio se resolvió cargando el valor 42 en la posición 24 de la RAM y luego copiandoese 
+  valor a la posición 200. El proceso se realizó de la siguiente manera:
+
+ Primero, se cargó el valor 42 en el registro D y se almacenó en la posición de memoria 24.
+ Luego, se accedió al valor almacenado en la posición 24 de la RAM y se copió al registro D.
+ Finalmente, el valor contenido en el registro D (que es 42) se almacenó en la posición de memoria 200.
+ De esta forma, logramos trasladar el valor 42 de la posición 24 a la posición 200 de la RAM.
+
+ ```
+@42     // Cargar el valor 42 en el registro A
+D=A     // Copiar el valor de A (42) a D
+@24     // Cargar la dirección de memoria 24 en el registro A
+M=D     // Almacenar el valor de D (42) en la posición de memoria 24
+
+@24     // Cargar la dirección de memoria 24 en el registro A
+D=M     // Copiar el valor de la posición de memoria 24 al registro D
+@200    // Cargar la dirección de memoria 200 en el registro A
+M=D     // Almacenar el valor de D (que contiene el valor de la posición 24) en la posición de memoria 200
+
+ ```
+
+
+![image](https://github.com/user-attachments/assets/bd647044-4e87-4b1d-8237-6a0b3580ae5a)
+
+
+# 4. 
+  Este ejercicio consistía en leer el valor que se encuentra en la posición 100 de la RAM, 
+  restarle 15 y guardar el resultado en la misma posición 100. La solución se realizó de una
+  manera muy simple, logrando lo siguiente:
+
+  Se leyó el valor almacenado en la posición 100 de la RAM.
+  A ese valor se le restaron 15.
+  Finalmente, se guardó el resultado nuevamente en la misma dirección de memoria (100).
+  De esta forma, logramos realizar la operación solicitada de manera eficiente
+
+
+![image](https://github.com/user-attachments/assets/7dd2d6de-f8ac-426d-8387-90ebb924c1e0)
+
+# 5. 
+  Suma el contenido de la posición 0 de la RAM, el contenido de la posición 1 de la RAM
+  y con la constante 69. Guarda el resultado en la posición 2 de la RAM.
+  
+   1.Para resolver este ejercicio, seguimos estos pasos:
+   2.Cargar el valor de la posición 0 de la RAM.
+   3.Cargar el valor de la posición 1 de la RAM.
+   4.Sumar ambos valores junto con la constante 69.
+   5.Almacenar el resultado en la posición 2 de la RAM.
+
+
+```
+@5      // Cargar el valor 5 en el registro A (ejemplo de valor inicial para la posición 0)
+D=A     // Copiar el valor 5 al registro D
+@0      // Cargar la dirección de memoria 0 en el registro A
+M=D     // Almacenar el valor de D (5) en la posición 0
+
+@10     // Cargar el valor 10 en el registro A (ejemplo de valor inicial para la posición 1)
+D=A     // Copiar el valor 10 al registro D
+@1      // Cargar la dirección de memoria 1 en el registro A
+M=D     // Almacenar el valor de D (10) en la posición 1
+
+@0      // Cargar la dirección de memoria 0 en el registro A
+D=M     // Copiar el valor de la posición 0 (5) al registro D
+@1      // Cargar la dirección de memoria 1 en el registro A
+D=D+M   // Sumar el valor de la posición 1 (10) al registro D (D = 5 + 10)
+
+@69     // Cargar el valor 69 en el registro A
+D=D+A   // Sumar 69 al valor en D (D = 15 + 69)
+
+@2      // Cargar la dirección de memoria 2 en el registro A
+M=D     // Almacenar el resultado (D = 84) en la posición 2
+
+```
+
+![image](https://github.com/user-attachments/assets/b4046d86-765c-4ea5-8de0-fa90f582f39b)
+
+
+
 
 
 
