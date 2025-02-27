@@ -318,7 +318,60 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   5️. @20→ Carga en Ala dirección 20, que es donde queremos saltar.
 
   6️. D;JLT→ Si Des negativo ( RAM[100] < 100), el procesador salta a la ROM en la posición 20.
-     
+
+# 8. 
+  las variables como var1, var2 y var3 son símbolos que representan direcciones de memoria en la RAM
+  Cuando el ensamblador encuentra un símbolo como @var1, lo trata de dos maneras posibles:
+
+  Si es una etiqueta predefinida (como @SP, @LCL, @ARG), la reemplaza por la dirección específica que tiene en la arquitectura de Nand2Tetris.
+  Si es una variable que no ha sido definida antes, el ensamblador le asigna automáticamente una dirección en la RAM a partir de la posición 16.
+  
+  ```
+
+  @var1
+  D = M    // Carga en D el valor almacenado en RAM[var1]
+  @var2
+  D = D + M // Suma el valor almacenado en RAM[var2] al valor de D
+  @var3
+  M = D    // Guarda el resultado en RAM[var3]
+
+  ```
+   este codigo toma el valor de la Var1 lo carga en D, Seguido Le sumamos el calor almacenado en D con Var2 y el resultado sera 
+   el Var 3 
+
+   En Nand2Tetris, el ensamblador asigna direcciones de memoria a las variables automáticamente.
+   Las variables se almacenan en la RAM a partir de la dirección 16.
+
+   Esto significa que:
+
+  La primera variable encontrada (var1) se asigna a RAM[16].
+  La segunda (var2) se asigna a RAM[17].
+  La tercera (var3) se asigna a RAM[18].  
+
+# 9. 
+  Este programa es una simple secuencia de suma en la que a una variable i le sumamos un valor asignado
+  Inicializa la variable i en 1.
+  Inicializa la variable sum en 0.
+  Suma i al valor de sum.
+  Incrementa i en 1.
+
+  al igal que lo anterior sabemos que se almacenan apartir de la posicion 16 de la ram 
+  Por lo tanto:
+
+  i → RAM[16]
+  sum → RAM[17]
+
+  para optimizarlo a solamente 2 instrucciones puede ser 
+  @i
+  M=M+1
+  
+  Esto funciona porque la ALU del hardware permite modificar M directamente sin necesidad de un paso intermedio en D.
+  
+  
+  
+
+
+
     
 
 
