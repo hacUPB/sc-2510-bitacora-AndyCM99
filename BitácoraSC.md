@@ -307,11 +307,16 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   
   Explicación detallada
   1️. @100→ Carga en el registro Ala dirección de memoria 100.
+
   2️. D=M→ Guarda en Del valor almacenado en RAM[100].
+
   3️. @100→ Carga el número 100en el registro A(para poder hacer la comparación).
+
   4️. D=D-A→ Calcular D = RAM[100] - 100.
      Si D < 0, significa que RAM[100] < 100.
+
   5️. @20→ Carga en Ala dirección 20, que es donde queremos saltar.
+
   6️. D;JLT→ Si Des negativo ( RAM[100] < 100), el procesador salta a la ROM en la posición 20.
      
     
