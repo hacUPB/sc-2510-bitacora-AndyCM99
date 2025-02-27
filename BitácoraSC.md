@@ -432,9 +432,119 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   ensamblador la convierte en una dirección en ROM.
 
 
-  
+# 12. Implemente en ensamblador:
+
+  ```
+  R4 = R1 + R2 + 69
+  ```
+
+  SOLUCION :
 
   
+```
+
+       // R4 = R1 + R2 + 69
+
+@1    // Cargar R1 en D (equivale a @R1)
+D=M   
+
+@2    // Sumar R2 a D (equivale a @R2)
+D=D+M 
+
+@69   // Sumar 69 a D
+D=D+A 
+
+@4    // Guardar el resultado en R4 (equivale a @R4)
+M=D   
+
+
+```  
+
+# 13. Implemente en ensamblador:
+
+
+```
+
+if R0 >= 0 then R1 = 1
+else R1 = –1
+
+(LOOP)
+goto LOOP
+
+```
+SOLUCION:
+
+```
+
+
+
+// Si R0 < 0, entonces R1 = -1
+@1
+M=-1
+@LOOP
+0;JMP   // Saltar al bucle infinito
+
+(POSITIVE) //(POSITIVE): Etiqueta usada como punto de referencia en los 
+                          saltos.
+// Si R0 >= 0, entonces R1 = 1
+@1
+M=1
+
+(LOOP)
+// Bucle infinito
+@LOOP
+0;JMP
+
+
+```
+
+Si R0 >= 0, entonces R1 = 1.
+Si R0 < 0, entonces R1 = -1.
+Luego entra en un bucle infinito para detener la ejecución.
+
+# 14. Implementa en ensamblador:
+
+```
+ R4 = RAM[R1]
+
+```
+
+
+```
+
+// Guardamos el valor 55 en RAM[10]
+@55
+D=A
+@10
+M=D
+
+// Guardamos la dirección 10 en R1 (RAM[1])
+@10
+D=A
+@1
+M=D
+
+// Cargar el valor de R1 (RAM[1]) en D
+@1
+D=M
+
+// Usar D como dirección de memoria y cargar el valor de RAM[R1] en D
+A=D
+D=M
+
+// Guardar el valor en R4 (RAM[4])
+@4
+M=D
+
+
+```
+
+Hemos guardado el número 55 en RAM[10]
+Hemos usado R1 (RAM[1]) para almacenar el numero 10
+Hemos leído RAM[10] a traves de R1 y lo hemos copiado en R4 (RAM[4])
+
+Este código funciona directamente en Nand2Tetris, puedes probarlo en el 
+simulador y verificar que RAM[4] tenga el valor 55
 
 
 
