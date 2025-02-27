@@ -271,7 +271,50 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
 ![image](https://github.com/user-attachments/assets/b4046d86-765c-4ea5-8de0-fa90f582f39b)
 
 
+# 6.
+  continuando, tenemos  Si el valor almacenado en D es igual a 0 salta a la posición 100 de la ROM. 
+  podemos encontrar esta posible solucion 
+  
+  ```
 
+  @100
+  D;JEQ
+
+  ```
+
+  que entendemos de esto??? 
+  @100(Instrucción A), se cargara en el registro la posicion 100 es decir A=100
+  luego de cualquier tarea se va ir a la direccion 100
+  y luego, D;JEQ(Instrucción C con salto condicional), es un condicinal que me dice 
+  si el valor D es == 0 salte a la direccion 100 si D es 0 
+
+# 7. 
+  ahora tnemeos este se nos pide Si el valor almacenado en la posición 100 de la RAM es menor
+  a 100 salta a la posición 20 de la ROM.
+
+  ```
+
+  @100       
+  D=M        // Cargar el valor almacenado en la RAM[100] en D
+  @100
+  D=D-A      // Restar 100 - RAM[100]
+  @20
+  D;JLT      // Si RAM[100] < 100, saltar a la posición 20 de la ROM
+
+
+  ```
+  primero cargamos el valor de 100 en D y lo igualamos 
+  
+  Explicación detallada
+  1️. @100→ Carga en el registro Ala dirección de memoria 100.
+  2️. D=M→ Guarda en Del valor almacenado en RAM[100].
+  3️. @100→ Carga el número 100en el registro A(para poder hacer la comparación).
+  4️. D=D-A→ Calcular D = RAM[100] - 100.
+     Si D < 0, significa que RAM[100] < 100.
+  5️. @20→ Carga en Ala dirección 20, que es donde queremos saltar.
+  6️. D;JLT→ Si Des negativo ( RAM[100] < 100), el procesador salta a la ROM en la posición 20.
+     
+    
 
 
 
