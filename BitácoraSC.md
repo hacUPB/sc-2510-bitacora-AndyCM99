@@ -360,8 +360,8 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   al igal que lo anterior sabemos que se almacenan apartir de la posicion 16 de la ram 
   Por lo tanto:
 
-  i → RAM[16]
-  sum → RAM[17]
+  i RAM[16]
+  sum  RAM[17]
 
   para optimizarlo a solamente 2 instrucciones puede ser 
   @i
@@ -394,12 +394,14 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   Este código implementa un contador regresivo de 1000 a 0.
   
  #### ¿En qué memoria está almacenada la variable i? ¿En qué dirección?
+ 
  En Nand2Tetris, las variables como i se almacenan en la RAM, empezando desde la dirección RAM[16] en adelante.
 
  Como i no es un registro predefinido (R0 - R15), el ensamblador le asignará 
  la primera posición disponible en la RAM, que es RAM[16].
  
  #### ¿En qué memoria y en qué dirección está almacenado el comentario // i = 1000?
+ 
  Los comentarios NO se almacenan en memoria.
  Son ignorados por el ensamblador y solo sirven para los programadores.
  
@@ -417,12 +419,14 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   Dirección: ROM[0] (primera instrucción del programa).
   
   #### ¿Qué son CONT y LOOP?
+  
   Son etiquetas (labels) que representan posiciones en la ROM.
   (LOOP) y (CONT) no se almacenan en memoria, sino que le dicen al
   ensamblador a qué dirección de la ROM se debe saltar cuando el 
   programa usa @LOOP o @CONT.
 
   #### ¿Cuál es la diferencia entre i y CONT?
+  
   i es una variable, así que se almacena en la RAM (en RAM[16]).
   CONT es una etiqueta, así que NO ocupa espacio en RAM ni en ROM, pero el
   ensamblador la convierte en una dirección en ROM.
