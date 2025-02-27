@@ -349,12 +349,14 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   La tercera (var3) se asigna a RAM[18].  
 
 # 9. 
+  #### ¿Qué hace este programa?
   Este programa es una simple secuencia de suma en la que a una variable i le sumamos un valor asignado
   Inicializa la variable i en 1.
   Inicializa la variable sum en 0.
   Suma i al valor de sum.
   Incrementa i en 1.
 
+  #### ¿En qué parte de la memoria RAM está la variable i y sum? ¿Por qué en esas posiciones?
   al igal que lo anterior sabemos que se almacenan apartir de la posicion 16 de la ram 
   Por lo tanto:
 
@@ -367,7 +369,67 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   
   Esto funciona porque la ALU del hardware permite modificar M directamente sin necesidad de un paso intermedio en D.
   
+# 10.
+
+   Multiplicar el valor de R0 por 2 y guardarlo en R1
+
+   ```
+
+   @R0    // Apunta a la dirección RAM[0]
+   D=M    // Carga el valor de R0 en el registro D
+   D=D+M  // D = R0 + R0 (esto es 2 * R0)
+   @R1    // Apunta a la dirección RAM[1]
+   M=D    // Guarda el resultado en R1
+
+  ```
+# 11.
+  #### ¿Qué hace este programa?
+  Este programa cuenta hacia atrás desde 1000 hasta 0 y luego termina.
+
+  Inicializa i = 1000.
+  Entra en un bucle (LOOP) donde:
+  Si i == 0, salta a CONT (fin del programa).
+  Si i > 0, decrementa i (i = i - 1) y repite el bucle.
+  Cuando i llega a 0, el programa termina.
+  Este código implementa un contador regresivo de 1000 a 0.
   
+ #### ¿En qué memoria está almacenada la variable i? ¿En qué dirección?
+ En Nand2Tetris, las variables como i se almacenan en la RAM, empezando desde la dirección RAM[16] en adelante.
+
+ Como i no es un registro predefinido (R0 - R15), el ensamblador le asignará 
+ la primera posición disponible en la RAM, que es RAM[16].
+ 
+ #### ¿En qué memoria y en qué dirección está almacenado el comentario // i = 1000?
+ Los comentarios NO se almacenan en memoria.
+ Son ignorados por el ensamblador y solo sirven para los programadores.
+ 
+
+ #### ¿Cuál es la primera instrucción del programa? ¿Dónde está almacenada?
+
+ La primera instrucción es:
+
+  @1000
+  Es una instrucción A-instruction que carga el valor 1000 en el registro D.
+  Se almacena en la ROM, que es donde están las instrucciones ejecutables.
+  
+  Conclusion:
+  Memoria: ROM (memoria de solo lectura).
+  Dirección: ROM[0] (primera instrucción del programa).
+  
+  #### ¿Qué son CONT y LOOP?
+  Son etiquetas (labels) que representan posiciones en la ROM.
+  (LOOP) y (CONT) no se almacenan en memoria, sino que le dicen al
+  ensamblador a qué dirección de la ROM se debe saltar cuando el 
+  programa usa @LOOP o @CONT.
+
+  #### ¿Cuál es la diferencia entre i y CONT?
+  i es una variable, así que se almacena en la RAM (en RAM[16]).
+  CONT es una etiqueta, así que NO ocupa espacio en RAM ni en ROM, pero el
+  ensamblador la convierte en una dirección en ROM.
+
+
+  
+
   
 
 
