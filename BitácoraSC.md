@@ -547,9 +547,131 @@ Este código funciona directamente en Nand2Tetris, puedes probarlo en el
 simulador y verificar que RAM[4] tenga el valor 55
 
 
+# 15. Implementa en ensamblador:
+
+
+```
+
+
+// R0 contiene la dirección inicial de la región de memoria
+// R1 contiene el tamaño de la región de memoria
+// Debemos almacenar -1 en cada posición desde R0 hasta (R0 + R1 - 1)
+
+@R0
+D=M          // D = dirección inicial (R0)
+@addr
+M=D          // addr = R0 (guardamos la dirección actual)
+
+// Comenzamos el loop
+(LOOP)
+  @R1
+  D=M        // D = tamaño de la región
+  @END
+  D;JEQ      // Si R1 == 0, terminamos
+
+  @addr
+  A=M        // Apuntamos a la dirección actual
+  M=-1       // Guardamos -1 en esa dirección
+
+  @addr
+  M=M+1      // Avanzamos a la siguiente dirección
+
+  @R1
+  M=M-1      // Reducimos el tamaño restante de la región
+
+  @LOOP
+  0;JMP      // Repetimos el proceso
+
+(END)
+@END
+0;JMP        // Fin del programa, bucle infinito opcional
+
+
+```
+
+ Recorremos la memoria usando addr como dirección actual.
+ Usamos R1 como contador de posiciones restantes.
+ Almacenamos -1 en cada dirección hasta completar la región.
+ Terminamos con un salto a (END).
+
+
+
+# 16. Implementa en ensamblador:
+
+```
+
+// Definir dirección base del arreglo (por ejemplo, en RAM[20])
+@20  
+D=A    
+@arr  
+M=D    // Guardamos la dirección base en 'arr'
+
+// Inicializar sum = 0
+@sum  
+M=0    
+
+// Inicializar j = 0
+@j  
+M=0    
+
+(LOOP)  
+    // Si j >= 10, salir del bucle
+    @j  
+    D=M  
+    @10  
+    D=D-A  
+    @END  
+    D;JGE  // Si j - 10 >= 0, terminamos
+    
+    // Obtener arr[j]
+    @j  
+    D=M  
+    @arr  
+    A=M  
+    A=A+D  // A = arr + j (posición del elemento)
+    D=M    // D = arr[j]
+
+    // sum = sum + arr[j]
+    @sum  
+    M=M+D  
+
+    // j = j + 1
+    @j  
+    M=M+1  
+
+    // Volver al inicio del bucle
+    @LOOP  
+    0;JMP  
+
+(END)  
+    @END  
+    0;JMP  // Ciclo infinito
 
     
+```
 
+
+ Cargamos la dirección base del arreglo (arr = RAM[20]).
+ Recorremos el arreglo usando j como índice.
+ Sumamos cada elemento de arr en sum.
+ Terminamos cuando j >= 10.
+
+
+17. Implementa en ensamblador:
+
+```
+ @7  
+D=D-A    // D = D - 7
+@69  
+D;JEQ    // Si D == 0, saltar a ROM[69]
+
+
+```
+
+El programa verifica si el valor en el registro D es igual a 7.
+
+ Si D == 7, el programa salta a la instrucción almacenada en la posición ROM[69].
+ Si D ≠ 7, el programa sigue ejecutando las instrucciones que vienen después en la ROM.
 
 
 
