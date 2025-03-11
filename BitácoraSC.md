@@ -657,7 +657,7 @@ M=0
  Terminamos cuando j >= 10.
 
 
-17. Implementa en ensamblador:
+# 17. Implementa en ensamblador:
 
 ```
  @7  
@@ -674,6 +674,343 @@ El programa verifica si el valor en el registro D es igual a 7.
  Si D ≠ 7, el programa sigue ejecutando las instrucciones que vienen después en la ROM.
 
 
+# 18. Utiliza esta herramienta para dibujar un bitmap en la pantalla.
 
+ usamos Jack Bitmap Editor v2.5 para plasmar una imagen en pantalla la cual nos dio este codigo en Hack Assembly.
+
+```
+(draw)
+	// put bitmap location value in R12
+	// put code return address in R13
+	@SCREEN
+	D=A
+	@R12
+	AD=D+M
+	// row 6
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 7
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 8
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 9
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 10
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 11
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 12
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 13
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 14
+	D=A // D holds previous addr
+	@32
+	AD=D+A
+	@15390 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 15
+	D=A // D holds previous addr
+	@31
+	AD=D+A
+	@31744 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	@32767
+	A=!A // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	@15 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 16
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@31744 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	@32767
+	A=!A // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	@15 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 17
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@14336 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	M=0
+	AD=A+1 // D holds addr
+	@7 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 18
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@14336 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	M=0
+	AD=A+1 // D holds addr
+	@7 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 19
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@14336 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	M=0
+	AD=A+1 // D holds addr
+	@7 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 20
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@14336 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	AD=A+1 // D holds addr
+	M=0
+	AD=A+1 // D holds addr
+	@7 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 21
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@2048 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=A-D // RAM[addr]=-val
+	AD=A+1 // D holds addr
+	M=-1
+	AD=A+1 // D holds addr
+	@7 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 22
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@2048 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=A-D // RAM[addr]=-val
+	AD=A+1 // D holds addr
+	M=-1
+	AD=A+1 // D holds addr
+	@7 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 23
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	@2048 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=A-D // RAM[addr]=-val
+	AD=A+1 // D holds addr
+	M=-1
+	AD=A+1 // D holds addr
+	@7 // A holds val
+	D=D+A // D = addr + val
+	A=D-A // A=addr + val - val = addr
+	M=D-A // RAM[addr] = val
+	// row 24
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	M=0
+	AD=A+1 // D holds addr
+	M=0
+	AD=A+1 // D holds addr
+	M=0
+	// row 25
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	M=0
+	AD=A+1 // D holds addr
+	M=0
+	AD=A+1 // D holds addr
+	M=0
+	// row 26
+	D=A // D holds previous addr
+	@30
+	AD=D+A
+	M=0
+	AD=A+1 // D holds addr
+	M=0
+	AD=A+1 // D holds addr
+	M=0
+	// return
+	@R13
+	A=M
+	D;JMP
+
+
+```
    
+que nos dio esta imagen 
+
+![image](https://github.com/user-attachments/assets/bb612cf4-4774-4404-9ff9-d1d2a09eb991)
+
+hice un pequeñp test para ver como interactua con la cpu emulator 
+
+
+![image](https://github.com/user-attachments/assets/2715170e-34a7-44b2-8e0e-a5f6d29669c6)
+
+
+# 19 . se pide analizar este codigo.
+
+0100000000000000
+1110110000010000
+0000000000010000
+1110001100001000
+0110000000000000
+1111110000010000
+0000000000010011
+1110001100000101
+0000000000010000
+1111110000010000
+0100000000000000
+1110010011010000
+0000000000000100
+1110001100000110
+0000000000010000
+1111110010101000
+1110101010001000
+0000000000000100
+1110101010000111
+0000000000010000
+1111110000010000
+0110000000000000
+1110010011010000
+0000000000000100
+1110001100000011
+0000000000010000
+1111110000100000
+1110111010001000
+0000000000010000
+1111110111001000
+0000000000000100
+1110101010000111
+
+el cual al cargarlo como un .hack en nan2T
+mostro este codigo 
+
+
+    
+D&A 
+@25360 
+@10011 
+@2917 
+@10000 
+@25360 
+@16384 
+@17360 
+@100 
+@2926 
+@10000 
+@23816 
+AM=!A 
+@100 
+#ERR 
+@10000 
+@25360 
+D&A 
+@17360 
+@100 
+@2827 
+@10000 
+#ERR 
+#ERR 
+@10000 
+#ERR 
+@100
+#ERR 
+
+aparentmeente al ejecutarlo trarta de pintar una linea horizontal  
    
