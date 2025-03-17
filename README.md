@@ -13,7 +13,7 @@ Si quiero dibujar algo en la pantalla, escribes en un bloque de "notas" (direcci
 
 Es como si, en lugar de llamar por teléfono al teclado o a la pantalla, simplemente dejaras un mensaje en su buzón de memoria. ¡Simple y eficiente!
 
-###¿Cómo se implementa en la plataforma Hack?
+### ¿Cómo se implementa en la plataforma Hack?
 En la computadora Hack, esto funciona así:
 
 #### El teclado: 
