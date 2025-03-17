@@ -83,5 +83,17 @@ Puedes agregar más dispositivos simplemente mapeándolos a nuevas direcciones d
 ### En resumen
 La entrada-salida mapeada a memoria es como usar el mismo sistema de notas adhesivas para almacenar datos y comunicarte con dispositivos. En la plataforma Hack, esto te permite interactuar con el teclado y la pantalla de una manera sencilla y elegante. El programa que escribimos es un ejemplo básico, pero ¡las posibilidades son infinitas! Puedes crear cosas más complejas, como juegos o aplicaciones, usando este mismo principio.
 
-## Actividad 2
+## Actividad 2 y 3 
+
+Como respuesta a la pregunta 20 del reto, parece ser que no comprendí la instrucción, así que 
+realicé todo completo. Es decir, que en la 20 mi respuesta ilustra la figura de la 18, solo
+que al soltar la tecla se borra la ilustración del bitmap
+
+## Actividad 4 
+
+
+
+
+
+
 
