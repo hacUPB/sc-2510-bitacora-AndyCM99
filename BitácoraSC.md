@@ -946,42 +946,73 @@ hice un pequeñp test para ver como interactua con la cpu emulator
 # 19 . se pide analizar este codigo.
 
 0100000000000000
+
 1110110000010000
+
 0000000000010000
+
 1110001100001000
+
 0110000000000000
+
 1111110000010000
+
 0000000000010011
+
 1110001100000101
+
 0000000000010000
+
 1111110000010000
+
 0100000000000000
+
 1110010011010000
+
 0000000000000100
+
 1110001100000110
+
 0000000000010000
+
 1111110010101000
+
 1110101010001000
+
 0000000000000100
+
 1110101010000111
+
 0000000000010000
+
 1111110000010000
+
 0110000000000000
+
 1110010011010000
+
 0000000000000100
+
 1110001100000011
+
 0000000000010000
+
 1111110000100000
+
 1110111010001000
+
 0000000000010000
+
 1111110111001000
+
 0000000000000100
+
 1110101010000111
 
 el cual al cargarlo como un .hack en nan2T
 mostro este codigo 
 
-
+```
     
 D&A 
 @25360 
@@ -1012,5 +1043,441 @@ D&A
 @100
 #ERR 
 
+```
+
 aparentmeente al ejecutarlo trarta de pintar una linea horizontal  
+
+# 20
+```
+(draw)
+    // Verifica si la tecla "D" está presionada
+    @KBD
+    D=M
+    @68
+    D=D-A
+    @DRAW
+    D;JEQ
+
+    // Si no es "D", borra la pantalla
+    @CLEAR
+    0;JMP
+
+(DRAW)
+    // Dibuja un patrón en la pantalla (filas 6 a 26)
+    @SCREEN
+    D=A
+    @R12
+    AD=D+M
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 7
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 8
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 9
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 10
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 11
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 12
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 13
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 14
+    D=A
+    @32
+    AD=D+A
+    @15390
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 15
+    D=A
+    @31
+    AD=D+A
+    @31744
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    @32767
+    A=!A
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    @15
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 16
+    D=A
+    @30
+    AD=D+A
+    @31744
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    @32767
+    A=!A
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    @15
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 17
+    D=A
+    @30
+    AD=D+A
+    @14336
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    M=0
+    AD=A+1
+    @7
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 18
+    D=A
+    @30
+    AD=D+A
+    @14336
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    M=0
+    AD=A+1
+    @7
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 19
+    D=A
+    @30
+    AD=D+A
+    @14336
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    M=0
+    AD=A+1
+    @7
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 20
+    D=A
+    @30
+    AD=D+A
+    @14336
+    D=D+A
+    A=D-A
+    M=D-A
+    AD=A+1
+    M=0
+    AD=A+1
+    @7
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 21
+    D=A
+    @30
+    AD=D+A
+    @2048
+    D=D+A
+    A=D-A
+    M=A-D
+    AD=A+1
+    M=-1
+    AD=A+1
+    @7
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 22
+    D=A
+    @30
+    AD=D+A
+    @2048
+    D=D+A
+    A=D-A
+    M=A-D
+    AD=A+1
+    M=-1
+    AD=A+1
+    @7
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 23
+    D=A
+    @30
+    AD=D+A
+    @2048
+    D=D+A
+    A=D-A
+    M=A-D
+    AD=A+1
+    M=-1
+    AD=A+1
+    @7
+    D=D+A
+    A=D-A
+    M=D-A
+    // Fila 24
+    D=A
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 25
+    D=A
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 26
+    D=A
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    @END
+    0;JMP
+
+(CLEAR)
+    // Borra la pantalla (escribe 0 en todas las filas)
+    @SCREEN
+    D=A
+    @R12
+    AD=D+M
+    // Fila 6
+    M=0
+    @32
+    AD=D+A
+    // Fila 7
+    M=0
+    @32
+    AD=D+A
+    // Fila 8
+    M=0
+    @32
+    AD=D+A
+    // Fila 9
+    M=0
+    @32
+    AD=D+A
+    // Fila 10
+    M=0
+    @32
+    AD=D+A
+    // Fila 11
+    M=0
+    @32
+    AD=D+A
+    // Fila 12
+    M=0
+    @32
+    AD=D+A
+    // Fila 13
+    M=0
+    @32
+    AD=D+A
+    // Fila 14
+    M=0
+    @32
+    AD=D+A
+    // Fila 15
+    M=0
+    @31
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 16
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 17
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 18
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 19
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 20
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 21
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 22
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 23
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 24
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 25
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    // Fila 26
+    @30
+    AD=D+A
+    M=0
+    AD=A+1
+    M=0
+    AD=A+1
+    M=0
+    @END
+    0;JMP
+
+(END)
+    // Retorna al programa principal
+    @R13
+    A=M
+    D;JMP
    
+```
+
+En la etiqueta (draw), se accede a la memoria del teclado, donde se almacenó la última tecla presionada,
+y se lee el valor de la tecla. Este valor se guarda en el registro D. Luego, se carga el valor 68 en A 
+(que es el valor de la letra "D" en ASCII) para restarlo al valor almacenado en D. Si el resultado de esta
+resta es 0, significa que se presionó la tecla "D". Si es así, el programa salta a la etiqueta DRAW para 
+ejecutar el código de dibujo.
+
+Si la tecla no es "D", el programa salta a la etiqueta CLEAR para borrar la pantalla
+
+@SCREEN: Accede a la dirección base de la pantalla (16384).
+D=A: Guarda la dirección de la pantalla en el registro D.
+@R12: Accede al registro R12, que contiene un valor adicional para ajustar la posición en la pantalla.
+AD=D+M: Suma el valor de R12 con la dirección base de la pantalla y guarda el resultado en A y D.
+
+El código continúa dibujando fila por fila, asignando valores de 1 y 0 en las posiciones de memoria correspondientes para formar la imagen.
+
+M=0: Escribe 0 en la posición de memoria actual, lo que apaga los píxeles.
+@32: Avanza a la siguiente fila (cada fila tiene 32 palabras de 16 bits en Nand2Tetris).
+
+Este proceso se repite para cada fila, borrando o dibujando en toda la pantalla.
+
+
+
