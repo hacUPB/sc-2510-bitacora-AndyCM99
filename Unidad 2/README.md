@@ -678,8 +678,54 @@ sería incorrecto.
 
 
 
-## 4  Ahora vamos a acercarnos al concepto de puntero. Un puntero es una variable que almacena la 
-dirección de memoria de otra variable. Observa el siguiente programa escrito en C++:
+## 4 
+
+
+```
+
+int a = 10;  // Declara una variable 'a' y le asigna el valor 10.
+int *p;      // Declara un puntero 'p' que puede apuntar a una variable de tipo int.
+p = &a;      // Asigna la dirección de memoria de 'a' al puntero 'p'.
+*p = 20;     // Cambia el valor de 'a' a 20 a través del puntero 'p'.
+
+
+```
+
+
+## 5 
+
+En ensamblador no explican como tal que exista algo como un puntero pero si tenemos las direcciones de la memoria 
+que pues pienso que las podmeos usar de la misma manera, indicandole connde esta guardado un dato en concreto
+
+
+```
+// Declara una variable 'a' y le asigna el valor 10.
+@10         // Carga el valor 10 en el registro A.
+D=A         // Guarda el valor 10 en el registro D.
+@a          // Carga la dirección de la variable 'a' en el registro A.
+M=D         // Almacena el valor 10 en la dirección de 'a'.
+
+// Declara un puntero 'p' y le asigna la dirección de 'a'.
+@a          // Carga la dirección de 'a' en el registro A.
+D=A         // Guarda la dirección de 'a' en el registro D.
+@p          // Carga la dirección de 'p' en el registro A.
+M=D         // Almacena la dirección de 'a' en 'p'.
+
+// Cambia el valor de 'a' a 20 a través del puntero 'p'.
+@20         // Carga el valor 20 en el registro A.
+D=A         // Guarda el valor 20 en el registro D.
+@p          // Carga la dirección de 'p' en el registro A.
+A=M         // Carga la dirección almacenada en 'p' (la dirección de 'a') en el registro A.
+M=D         // Almacena el valor 20 en la dirección de 'a'.
+
+```
+
+![image](https://github.com/user-attachments/assets/55a4494f-ef6a-40ec-937f-bcf9d6b906ec)
+
+realice una prueba de como funciona dicho codigo, pues vemos que las bariables como @a y @p se comvierten en direcciones de la ram 
+las 16 y 17 las cuales como sabemos son destinadas al uso de variables y los usa para direccionar un valor, que en este caso es 10 inicialmete 
+que esta guardo en una ranura de la ram, y que le pedimos que con la ayuda de un p que sirve de puntero con la direccion de ese 10, vaya i busque ese 10
+para cambiarlo por un 20, asi sobrescribiendo por asi decirlo el dato 
 
 
 
