@@ -768,3 +768,55 @@ la dirección, y hacemos que tome lo que hay en esa dirección y lo cargue en b.
 
 
 ![image](https://github.com/user-attachments/assets/8438fc8d-99c8-40d9-bca0-abdf7bbcdcb0)
+
+
+
+## 8
+
+1. int *pvar;
+Explicación: Esta línea declara un puntero llamado pvar que apunta a un valor de tipo int.
+
+Qué hace:
+
+int * indica que pvar es un puntero a un entero (int).
+
+pvar es una variable que almacenará la dirección de memoria de un valor de tipo int.
+
+En este momento, pvar no está inicializado, por lo que apunta a una dirección de memoria no definida (puede ser basura o NULL si se inicializa explícitamente).
+
+2. pvar = var;
+Explicación: Esta línea asigna el valor de var al puntero pvar.
+
+Qué hace:
+
+Aquí, var debe ser una variable de tipo int o una expresión que devuelva un valor de tipo int.
+
+Sin embargo, esta línea no es válida en C/C++ porque pvar es un puntero (almacena direcciones de memoria), y var es un valor entero. No puedes asignar un valor entero directamente a un puntero.
+
+Si quisieras asignar la dirección de memoria de var a pvar, deberías usar el operador de dirección &
+
+3. var2 = *pvar;
+Explicación: Esta línea asigna el valor apuntado por pvar a la variable var2.
+
+Qué hace:
+
+*pvar es el operador de desreferenciación, que accede al valor almacenado en la dirección de memoria a la que apunta pvar.
+
+Si pvar apunta a un valor de tipo int, entonces *pvar devuelve ese valor.
+
+var2 debe ser una variable de tipo int para almacenar el valor desreferenciado.
+
+4. pvar = &var3;
+Explicación: Esta línea asigna la dirección de memoria de la variable var3 al puntero pvar.
+
+Qué hace:
+
+&var3 es el operador de dirección, que devuelve la dirección de memoria donde está almacenada la variable var3.
+
+pvar ahora apunta a la dirección de memoria de var3.
+
+Si var3 es de tipo int, entonces pvar puede almacenar su dirección porque pvar es un puntero a int.
+
+
+
+## 9
