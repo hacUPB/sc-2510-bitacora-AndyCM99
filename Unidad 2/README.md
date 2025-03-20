@@ -730,4 +730,41 @@ para cambiarlo por un 20, asi sobrescribiendo por asi decirlo el dato
 
 
 
+## 7 
+```
 
+
+// Declara una variable 'a' y le asigna el valor 10.
+@10         // Carga el valor 10 en el registro A.
+D=A         // Guarda el valor 10 en el registro D.
+@a          // Carga la dirección de la variable 'a' en el registro A.
+M=D         // Almacena el valor 10 en la dirección de 'a'.
+
+// Declara una variable 'b' y le asigna el valor 5.
+@5          // Carga el valor 5 en el registro A.
+D=A         // Guarda el valor 5 en el registro D.
+@b          // Carga la dirección de la variable 'b' en el registro A.
+M=D         // Almacena el valor 5 en la dirección de 'b'.
+
+// Declara un puntero 'p' y le asigna la dirección de 'a'.
+@a          // Carga la dirección de 'a' en el registro A.
+D=A         // Guarda la dirección de 'a' en el registro D.
+@p          // Carga la dirección de 'p' en el registro A.
+M=D         // Almacena la dirección de 'a' en 'p'.
+
+// Asigna el valor de 'a' a 'b' a través del puntero 'p'.
+@p          // Carga la dirección de 'p' en el registro A.
+A=M         // Carga la dirección almacenada en 'p' (la dirección de 'a') en el registro A.
+D=M         // Guarda el valor almacenado en la dirección de 'a' en el registro D.
+@b          // Carga la dirección de 'b' en el registro A.
+M=D         // Almacena el valor de D (10) en la dirección de 'b'.
+
+```
+
+Como lo vimos en el ejercicio 5, es lo mismo: declaramos dos variables que se guardan en las ranuras 16 y 17 de la RAM, 
+como es la regla en la lógica de este emulador. Luego, declaramos una variable p que toma la dirección de la primera 
+variable guardada en @16 y la guarda en la ranura 18 de la RAM. Para finalizar, tomamos esa variable p, que guarda 
+la dirección, y hacemos que tome lo que hay en esa dirección y lo cargue en b.
+
+
+![image](https://github.com/user-attachments/assets/8438fc8d-99c8-40d9-bca0-abdf7bbcdcb0)
