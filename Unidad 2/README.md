@@ -820,3 +820,62 @@ Si var3 es de tipo int, entonces pvar puede almacenar su dirección porque pvar 
 
 
 ## 9
+
+
+
+```
+
+// Programa principal (main)
+(main)
+    // Declarar variables
+    @6        // Cargar el valor 6 en D
+    D=A
+    @a        // Guardar en la variable a
+    M=D
+
+    @9        // Cargar el valor 9 en D
+    D=A
+    @b        // Guardar en la variable b
+    M=D
+
+    // Llamar a la función suma
+    @suma     // Saltar a la etiqueta suma
+    0;JMP
+
+(suma)
+    // Cargar el valor de a en D
+    @a
+    D=M
+
+    // Cargar el valor de b y sumarlo a D
+    @b
+    D=D+M
+
+    // Guardar el resultado en c
+    @c
+    M=D
+
+    // Regresar a main
+    @main_after_suma
+    0;JMP
+
+(main_after_suma)
+    // Finalizar el proceso
+    @END
+    0;JMP
+
+(END)
+    @END      // Bucle infinito para terminar
+    0;JMP
+```
+
+la idea es tratar de emuolar el comportamiento de el codigo que se nos mostro en c, que pasa o mejor dicho que tenemos 
+primero tenemos una etiqueta mainq ue declara las variables  a y b las guarda en la ram, declaramos un salto 0;jmp que le pide al codigo continuar en la etiqueda suma declarada 
+busque lo que hay guardado en a es decir @16 y @17 los suma y guarda el resultado en @18 para finalizar con un nuevo salto para cerrar el bucle en una funcion main secundaria 
+
+lo verificamos en la consola de naan2tetris  
+
+
+![image](https://github.com/user-attachments/assets/9562c78b-8aae-4580-a12b-f14c8f482561)
+
+como vemos al final se quda en un bucle infinito en las ultimas dos lineas mostrando como un fin al proceso ejecutando satisfactoriamente la suma 
