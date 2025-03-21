@@ -35,7 +35,6 @@ Espera a que presiones una tecla.
 
 Muestra el carácter de esa tecla en la pantalla.
 
-#### Aquí está el código en ensamblador de Hack:
 
 ```
 // Programa: Mostrar la tecla presionada en la pantalla
