@@ -20,7 +20,7 @@ realizando operaciones de acuerdo con lo que el programa le indique.
 
 ## Actividad 1
 
-###¿Qué es un computador digital moderno y Cuáles son sus partes?
+### ¿Qué es un computador digital moderno y Cuáles son sus partes?
 
 #### Como mencionaba antes, un computador moderno se basa en una serie de componentes que trabajan juntos para ejecutar programas.
 La CPU, que es el cerebro del sistema, sigue las instrucciones en lenguaje de máquina, las cuales están almacenadas temporalmente 
@@ -37,10 +37,15 @@ facilidad cómo cada parte del sistema contribuye al procesamiento y la ejecuci�
 
 es un ejercicio donde sumamos dos enteros 
 INP: Lee un número desde la entrada del usuario (teclado) y lo guarda en el acumulador.
+
 STA 90: Almacena el valor del acumulador en la dirección de memoria 90.
+
 ADD 90: Suma el número que está en la dirección de memoria 90 al acumulador.
+
 OUT: Muestra el valor del acumulador (el resultado de la suma).
+
 HLT: Termina la ejecución del programa.
+
 DAT 5: Define el número 5 y lo guarda en la memoria en la dirección 90
 
 ## Actividad 2
@@ -54,6 +59,7 @@ nos planteamos estas preguntas durante la clase
    (como ensamblador o lenguaje de máquina). El propósito de un programa es ejecutar operaciones,
    procesar datos y producir resultados, ya sea interactuar con el usuario, realizar cálculos,
    o manipular información.
+   
 #### - ¿Qué es un lenguaje ensamblador?
    El lenguaje ensamblador (o assembly) es un lenguaje de programación de bajo nivel que está 
    muy cerca del lenguaje de máquina, pero más legible para los humanos. A diferencia de los 
@@ -63,6 +69,7 @@ nos planteamos estas preguntas durante la clase
    operación simple que la CPU puede ejecutar directamente. Para convertir un programa en 
    ensamblador en un programa ejecutable, se utiliza un ensamblador, que es un tipo de compilador 
    especializado.
+   
 #### - ¿Qué es lenguaje de máquina?
    El lenguaje de máquina es el lenguaje nativo que entiende la CPU de un computador.
    Está compuesto por secuencias de códigos binarios (0s y 1s), que representan
@@ -99,7 +106,7 @@ nos planteamos estas preguntas durante la clase
 
    Comenzamos a profundizar en el lenguaje ensamblador para comprender cómo funciona el almacenamiento de acceso aleatorio.
    
-   ####¿Qué es la RAM?
+   #### ¿Qué es la RAM?
    La RAM (memoria de acceso aleatorio) es como el espacio de trabajo temporal de la computadora. Guarda datos e instrucciones 
    que la CPU necesita de inmediato para realizar tareas. Es rápida, pero solo retiene la 
    información mientras el equipo está encendido. Cuando apagas la computadora, todo lo que está en la RAM se borra.
@@ -283,6 +290,7 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   ```
 
   que entendemos de esto??? 
+  
   @100(Instrucción A), se cargara en el registro la posicion 100 es decir A=100
   luego de cualquier tarea se va ir a la direccion 100
   y luego, D;JEQ(Instrucción C con salto condicional), es un condicinal que me dice 
@@ -359,14 +367,15 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   #### ¿En qué parte de la memoria RAM está la variable i y sum? ¿Por qué en esas posiciones?
   al igal que lo anterior sabemos que se almacenan apartir de la posicion 16 de la ram 
   Por lo tanto:
-
+ ```
   i RAM[16]
   sum  RAM[17]
-
+ ```
   para optimizarlo a solamente 2 instrucciones puede ser 
+ ```
   @i
   M=M+1
-  
+```
   Esto funciona porque la ALU del hardware permite modificar M directamente sin necesidad de un paso intermedio en D.
   
 # 10.
@@ -387,10 +396,15 @@ M=D     // Almacenar el resultado (D = 84) en la posición 2
   Este programa cuenta hacia atrás desde 1000 hasta 0 y luego termina.
 
   Inicializa i = 1000.
+  
   Entra en un bucle (LOOP) donde:
+  
   Si i == 0, salta a CONT (fin del programa).
+  
   Si i > 0, decrementa i (i = i - 1) y repite el bucle.
+  
   Cuando i llega a 0, el programa termina.
+  
   Este código implementa un contador regresivo de 1000 a 0.
   
  #### ¿En qué memoria está almacenada la variable i? ¿En qué dirección?
@@ -656,6 +670,27 @@ M=0
  Sumamos cada elemento de arr en sum.
  Terminamos cuando j >= 10.
 
+ ¿Qué hace este programa?
+
+Este programa suma los primeros 10 elementos del arreglo arr y almacena el resultado en la variable sum. Al finalizar, el programa entra en un ciclo infinito (sin hacer nada más).
+
+¿Cuál es la dirección base de arr en la memoria RAM?
+
+La dirección base de arr en la memoria es 20. Esto se establece en el primer bloque de código con la instrucción @20 que asigna la dirección 20 a la etiqueta arr mediante la instrucción M=D.
+
+¿Cuál es la dirección base de sum en la memoria RAM y por qué?
+
+La dirección base de sum es la siguiente dirección libre después de la dirección 20.
+
+En este caso, como no se especifica explícitamente una dirección para sum, se asume que las direcciones anteriores están ocupadas por otros datos.
+
+Es común que el sistema asigna una dirección consecutiva para sum, por ejemplo, si arr ocupa desde la dirección 20, sum podría estar en la dirección 21.
+
+Sin embargo, como el programa no indica la dirección de sum, se puede inferir que la dirección de sum es una dirección libre inmediatamente después de la dirección 20.
+
+¿Cuál es la dirección base de j en la memoria RAM y por qué?
+
+Al igual que sum, la dirección de j es una dirección libre después de la dirección 21 (que puede ser la de sum). El programa no asigna explícitamente una dirección a j, pero siguiendo el mismo razonamiento, j se ubicará en la siguiente dirección libre disponible en la memoria.
 
 # 17. Implementa en ensamblador:
 
@@ -1014,38 +1049,63 @@ mostro este codigo
 
 ```
     
-D&A 
-@25360 
-@10011 
-@2917 
-@10000 
-@25360 
-@16384 
-@17360 
-@100 
-@2926 
-@10000 
-@23816 
-AM=!A 
-@100 
-#ERR 
-@10000 
-@25360 
-D&A 
-@17360 
-@100 
-@2827 
-@10000 
-#ERR 
-#ERR 
-@10000 
-#ERR 
-@100
-#ERR 
+// Inicialización
+@16384          // Carga la dirección de inicio de la pantalla (16384) en A
+D=A             // Almacena 16384 en D
+
+@16             // Selecciona la posición de memoria 16 (usada como variable)
+M=D             // Guarda 16384 en M[16] (inicializa el puntero)
+
+// Bucle principal
+(LOOP)
+@24576          // Carga la dirección del teclado (24576) en A
+D=M             // Lee el estado del teclado (0 si no hay presión)
+
+@19             // Prepara salto a la dirección 19 (tecla presionada)
+D;JNE           // Si D != 0 (tecla presionada), salta a HANDLE_INPUT
+
+@16             // Carga la dirección de la variable (16) en A
+D=M             // Lee el valor del puntero en D
+
+@16384          // Carga el límite inferior (inicio pantalla)
+D=D-A           // Calcula D = puntero - 16384
+
+@4              // Prepara salto a la dirección 4 (CONTINUE)
+D;JLT           // Si D < 0 (puntero < 16384), salta a CONTINUE
+
+@16             // Carga dirección de la variable (16)
+M=0             // Si puntero es menor que 16384, lo resetea a 0
+@8              // Prepara salto a la dirección 8 (UPDATE)
+0;JMP           // Salto incondicional a UPDATE
+
+(CONTINUE)
+@4              // Prepara salto a la dirección 4 (LOOP)
+0;JMP           // Salto incondicional de vuelta al LOOP
+
+// Manejo de entrada
+(HANDLE_INPUT)
+@16             // Carga dirección de la variable (16)
+D=M             // Lee el valor del puntero en D
+
+@24576          // Carga el límite superior (teclado)
+D=D-A           // Calcula D = puntero - 24576
+
+@4              // Prepara salto a la dirección 4 (LOOP)
+D;JGT           // Si D > 0 (puntero > 24576), salta a LOOP
+
+@16             // Carga dirección de la variable (16)
+D=M+1           // Incrementa el puntero en 1
+M=D             // Guarda el nuevo valor
+
+@16             // Carga dirección de la variable (16)
+MD=M-1          // Decrementa el puntero en 1 (y guarda en MD)
+
+@4              // Prepara salto a la dirección 4 (LOOP)
+0;JMP           // Salto incondicional de vuelta al LOOP
 
 ```
 
-aparentmeente al ejecutarlo trarta de pintar una linea horizontal  
+me da una condicion para que un codigo haga un salto si preciono una tecla
 
 # 20
 ```
