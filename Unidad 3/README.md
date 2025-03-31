@@ -60,7 +60,7 @@ se pide tener el proyecto generado por el generador
 ahora 
 se pide realizar una modificacion al archvo 0fApp.cpp
 
-
+```
 
 #pragma once
 
@@ -84,7 +84,38 @@ class ofApp : public ofBaseApp{
 };
 
 
+```
 
+
+![7eb0b73a-f5de-46f6-a9ba-4aad3102a53e](https://github.com/user-attachments/assets/8b69ffe7-98af-4be5-9360-f3d91b2fc511)
+
+se realizaron diferentes cambios al archivo opApp.cpp y ofApp.h
+
+
+- ¿Qué fue lo que incluimos en el archivo .h?
+  Variables para almacenar las partículas:
+
+  vector<ofVec2f> particles: Se añade un vector de partículas para almacenar las posiciones de las partículas. ofVec2f es
+  una clase de OpenFrameworks que almacena un punto en 2D (coordenadas x, y). Esta variable es clave para almacenar las
+  partículas que irás creando cuando el ratón se mueva.
+
+  Color de las partículas:
+  
+  ofColor particleColor: Se añade esta variable para manejar el color de las partículas. ofColor es una clase de
+  OpenFrameworks que representa un color en el espacio RGB.
+  
+- ¿Cómo funciona la aplicación?
+  La aplicación que estás construyendo con OpenFrameworks tiene como objetivo mostrar partículas en la pantalla, las cuales son creadas y
+  manipuladas por la interacción del ratón. A continuación, te voy a explicar cómo funciona la aplicación que hemos creado paso a paso,
+  basándome en el código que has proporcionado hasta ahora.
+
+  
+
+- ¿Qué hace la función mouseMoved?
+- ¿Qué hace la función mousePressed?
+- ¿Qué hace la función setup?
+- ¿Qué hace la función update?
+- ¿Qué hace la función draw?
 
 
 
