@@ -1,1 +1,90 @@
 
+# Unidad 3 
+
+Trabajaremos en nuevo lenguaje en C++ 
+de que se trata?  Se trata de openframeworks.
+
+OpenFrameworks es un conjunto de herramientas de código abierto diseñado para facilitar el desarrollo de proyectos 
+creativos e interactivos, como instalaciones multimedia, arte generativo, visualizaciones, y más. Está basado en C++
+y proporciona una serie de bibliotecas que permiten trabajar con gráficos 2D y 3D, sonido, video, interfaces de usuario,
+sensores y dispositivos, entre otros.
+
+La idea de OpenFrameworks es simplificar el proceso de creación de aplicaciones visuales e interactivas, brindando 
+una plataforma robusta que los artistas, diseñadores y programadores puedan usar para desarrollar proyectos sin
+necesidad de escribir código demasiado complejo. Es muy popular entre la comunidad de arte digital, diseño interactivo,
+y entre aquellos interesados en el "media art".
+
+Algunas de las características clave de OpenFrameworks incluyen:
+
+Interacción en tiempo real: Soporte para trabajar con datos en vivo, como cámaras, micrófonos, sensores,
+y otros dispositivos.
+
+Compatibilidad multiplataforma: Se puede usar en Windows, macOS y Linux.
+
+Bibliotecas y extensiones: Hay muchas bibliotecas adicionales que permiten integrar OpenFrameworks con otros
+sistemas y tecnologías como Arduino, OpenCV, y OSC.
+
+Comunidad activa: Una comunidad global que contribuye constantemente con nuevos ejemplos, tutoriales
+y actualizaciones.
+
+# Actividad 1
+
+Se pide descargar un generador de proyectos de OpenFrameworks, instalarlo en C:/ y hacer un pequeño test,
+que consiste en una pequeña modificación al archivo ofApp.cpp.
+
+Pero primero quieria entender que hace la< funcion draw del codigo que tneemos en ofApp.cpp
+
+### Función especial: draw()
+La función draw() es clave en cualquier aplicación gráfica, ya que es la encargada de renderizar en pantalla todo
+lo que deseas mostrar. Es invocada repetidamente en un ciclo para asegurar que la pantalla se actualice constantemente 
+(generalmente a 60 fotogramas por segundo o más).
+
+#### ofSetColor(255):
+
+Establece el color para el siguiente dibujo. El valor 255 es blanco (en una escala de 0 a 255 para cada componente 
+de color RGB). Esto asegura que cualquier cosa que se dibuje a continuación será de color blanco.
+
+#### ofDrawCircle(ofGetMouseX(), ofGetMouseY(), 20):
+
+Dibuja un círculo en las coordenadas actuales del ratón. ofGetMouseX() y ofGetMouseY() obtienen la posición del ratón
+en la ventana, y el 20 es el radio del círculo (20 píxeles). El círculo se dibuja en la posición donde el ratón se
+encuentra en ese momento, y se actualizará constantemente mientras mueves el ratón.
+
+Esto hace que el programa dibuje un círculo blanco en la pantalla en la posición del ratón en todo momento, 
+creando una interacción visual.
+
+## Actividad 2 
+
+se pide tener el proyecto generado por el generador 
+
+ahora 
+se pide realizar una modificacion al archvo 0fApp.cpp
+
+
+
+#pragma once
+
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+
+        void mouseMoved(int x, int y );
+        void mousePressed(int x, int y, int button);
+
+    private:
+
+        vector<ofVec2f> particles;
+        ofColor particleColor;
+
+};
+
+
+
+
+
+
