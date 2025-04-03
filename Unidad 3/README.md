@@ -108,14 +108,40 @@ se realizaron diferentes cambios al archivo opApp.cpp y ofApp.h
   La aplicación que estás construyendo con OpenFrameworks tiene como objetivo mostrar partículas en la pantalla, las cuales son creadas y
   manipuladas por la interacción del ratón. A continuación, te voy a explicar cómo funciona la aplicación que hemos creado paso a paso,
   basándome en el código que has proporcionado hasta ahora.
+  
+  La aplicación comienza con un fondo negro y un color de partículas blanco.
 
+  Cuando el usuario mueve el mouse, se almacenan las posiciones en un vector y se dibujan círculos en esas posiciones.
+
+  Si hay más de 100 partículas, se elimina la más antigua para evitar que el vector crezca indefinidamente.
+
+  Cuando el usuario hace clic, el color de las partículas cambia a un color aleatorio.
   
 
 - ¿Qué hace la función mouseMoved?
+
+  Guarda la posición del mouse en el vector particles.
+
+  Si hay más de 100 elementos en el vector, borra el primero (el más antiguo) para mantener el tamaño controlado.
+
+Esto crea un efecto de "trazo" que sigue al cursor.
 - ¿Qué hace la función mousePressed?
+
+  Cambia el color de las partículas a un color aleatorio cuando se hace clic en la pantalla.
+  
 - ¿Qué hace la función setup?
+
+  Cambia el color de las partículas a un color aleatorio cuando se hace clic en la pantalla.
+
 - ¿Qué hace la función update?
+
+ En este caso, no hace nada. Pero en una aplicación más compleja, aquí se actualizaría la lógica del programa.
+ 
 - ¿Qué hace la función draw?
 
+  Dibuja todas las partículas almacenadas en el vector particles como círculos de radio 50.
 
+  Usa ofSetColor(particleColor) para que todas las partículas sean del mismo color.
+
+## Actividad 3
 
