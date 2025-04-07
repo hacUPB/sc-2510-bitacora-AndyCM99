@@ -145,3 +145,41 @@ Esto crea un efecto de "trazo" que sigue al cursor.
 
 ## Actividad 3
 
+cambie el color del fondo y el radio de cada bola, como ? 
+
+modifique esta parte del codigo  
+
+![image](https://github.com/user-attachments/assets/2994a9ab-1565-490c-bda1-31f2813c82a5)
+
+el fondo 
+```
+ofBackground(200); //que antges era 0
+
+```
+
+y el radio 
+
+```
+ ofDrawCircle(pos.x, pos.y, 100); // que antes era 50
+
+```
+
+## Actividad 3
+
+le agregue esta parte al codigo en el ofapp.ccp
+
+
+```
+void ofApp::mouseReleased(int x, int y, int button) {
+    if (button == OF_MOUSE_BUTTON_LEFT) {
+        selectedSphere = nullptr;
+    }
+}
+```
+y en of app.h agregue esto 
+```
+void mouseReleased(int x, int y, int button); 
+
+```
+
+
