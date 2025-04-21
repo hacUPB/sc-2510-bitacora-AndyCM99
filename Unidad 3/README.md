@@ -164,7 +164,7 @@ y el radio
 
 ```
 
-## Actividad 3
+## Actividad 5 y 6
 
 le agregue esta parte al codigo en el ofapp.ccp
 
@@ -181,5 +181,116 @@ y en of app.h agregue esto
 void mouseReleased(int x, int y, int button); 
 
 ```
+
+
+Como corregir el error?
+Agrega una función mouseReleased para que cuando sueltes el clic, la esfera deje de seguir el mouse.
+
+Al final del archivo se agrega.
+
+Cuando haces clic dentro de una esfera (mousePressed), la asigna como selectedSphere.
+
+Mientras se mantiene ese puntero, en update la esfera se mueve con el mouse.
+
+Cuando sueltas el botón del mouse (mouseReleased), se borra la selección, y la esfera ya no se mueve más.
+
+
+- ¿Cuál es la definición de un puntero?
+  
+  Un puntero en C++ es una variable que almacena la dirección de memoria de otro dato u objeto.
+
+  Es decir, en lugar de guardar directamente un objeto o número, guarda dónde está ubicado en la memoria.
+
+
+- ¿Dónde está el puntero?
+  
+  vector<Sphere*> spheres;   // ← vector que guarda punteros a esferas
+  
+  Sphere* selectedSphere;    // ← puntero a una esfera "seleccionada"
+
+- ¿Cómo se inicializa el puntero?
+
+  Se inicializa con new, que crea el objeto dinámicamente en memoria y devuelve la dirección donde está:
+  
+  spheres.push_back(new Sphere(x, y, radius));
+  
+  Esto crea una nueva Sphere y guarda su dirección en el vector spheres
+- ¿Para qué se está usando el puntero?
+
+  vector<Sphere*> spheres: Guarda la dirección de muchas esferas. Es como una lista de referencias a objetos que tú creaste con new.
+
+  selectedSphere: Se usa para guardar la esfera actual que estás moviendo con el mouse. Así sabes cuál debe seguir al cursor.
+
+- ¿Qué es exactamente lo que está almacenado en el puntero?
+
+  Un puntero no guarda el objeto en sí, sino su dirección en memoria.
+
+  Sphere* selectedSphere;
+
+  Aquí, selectedSphere guarda algo como una dirección, no la esfera completa. Para usar el objeto, se hace:
+
+  selectedSphere->update(x, y);
+
+  Esto quiere decir:
+
+  “Ve a la dirección guardada en selectedSphere y actualiza el objeto que está ahí.”
+
+  Pregunta | Respuesta breve
+ ¿Qué es un puntero? | Variable que guarda una dirección de memoria de otro dato u objeto.
+ ¿Dónde están los punteros? | En spheres (vector de punteros) y selectedSphere.
+ ¿Cómo se inicializan? | Con new Sphere(...) o asignando otro puntero existente (selectedSphere = ...)
+ ¿Para qué se usan? | Para manipular esferas dinámicas y seleccionar una para moverla.
+ ¿Qué guarda un puntero? | La dirección de memoria donde vive el objeto real (Sphere).
+
+## Actividad 7
+
+inicialmente uso el codigo que se proporciona 
+
+¿Qué hace el código originalmente? (cuando usas el stack)
+
+¿Qué pasa?
+
+Se crea una esfera local dentro de la función createObjectInStack. Como es local, vive en el stack.
+
+Guardas un puntero a esa esfera en el globalVector.
+
+Cuando termina la función, la variable localSphere desaparece porque el stack la elimina automáticamente.
+
+El vector sigue teniendo un puntero que apunta a una zona de memoria que ya fue liberada. 
+
+Luego, al dibujar o acceder a esa esfera, estás accediendo a basura, y pueden pasar cosas como:
+
+La app se traba o se cierra.
+
+Los valores son raros o aleatorios.
+
+Se ve todo en negro o nada se dibuja.
+
+¿Qué pasa cuando lo haces bien, usando el heap?
+
+void ofApp::createObjectInStack() {
+    Sphere* heapSphere = new Sphere(...);      // ← 1. Crea una esfera en el heap
+    globalVector.push_back(heapSphere);        // ← 2. Guarda su dirección en el vector
+}
+
+¿Qué pasa?
+Se crea una esfera dinámicamente en el heap.
+
+Esa memoria no se borra automáticamente cuando termina la función.
+
+Guardas el puntero en el vector.
+
+Más tarde, cuando usas sphere->draw() en draw(), ¡el objeto sigue existiendo! 🎉
+
+Puedes usarlo, moverlo, dibujarlo… todo sin errores.
+
+Acción                    |                  Stack              |             Heap
+¿Quién lo gestiona?       | El sistema, automáticamente         | Tú (debes usar new y delete)
+¿Cuánto vive la variable? | Solo dentro de la función           | Hasta que tú la borres
+¿Riesgo de fallos?        | Sí, si accedes después de que muera | No, si la gestionas bien
+¿Más rápido?              | Sí                                  | Un poco más lento
+
+## Actividad 8
+
 
 
