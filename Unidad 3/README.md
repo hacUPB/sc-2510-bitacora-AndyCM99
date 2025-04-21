@@ -296,5 +296,111 @@ Acción                    |                  Stack              |             H
 
 ## Actividad 8
 
+![image](https://github.com/user-attachments/assets/0533d811-250d-4860-a49c-35bbf30dba5a)
 
+ ¿Qué verás?
+ Esfera global: siempre está en la misma posición.
 
+ Esferas del heap: aparecen cada vez que presionas H y permanecen ahí.
+
+ Esfera temporal (stack): cada frame aparece una nueva en un lugar aleatorio, pero desaparece inmediatamente.
+
+ 
+
+ofApp.h
+
+```
+#pragma once
+
+#include "ofMain.h"
+
+class Sphere {
+public:
+    Sphere(float x, float y, float radius);
+    void draw() const;
+
+    float x, y;
+    float radius;
+    ofColor color;
+};
+
+// 🎯 Pelota global (vive durante toda la app)
+extern Sphere globalSphere;
+
+class ofApp : public ofBaseApp {
+public:
+    void setup();
+    void update();
+    void draw();
+
+    void keyPressed(int key);
+
+private:
+    std::vector<Sphere*> heapSpheres;
+
+    void createObjectInStack();  // temporal
+    void createObjectInHeap();   // memoria dinámica
+};
+
+```
+
+ofApp.cpp
+
+```
+
+#include "ofApp.h"
+
+// 🎯 Global sphere (vive siempre)
+Sphere globalSphere(100, 100, 30);
+
+Sphere::Sphere(float x, float y, float radius) : x(x), y(y), radius(radius) {
+    color = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
+}
+
+void Sphere::draw() const {
+    ofSetColor(color);
+    ofDrawCircle(x, y, radius);
+}
+
+void ofApp::setup() {
+    ofBackground(0);
+}
+
+void ofApp::update() {}
+
+void ofApp::draw() {
+    ofDrawBitmapString("Presiona G (Global), H (Heap), S (Stack)", 20, 20);
+
+    // 🎯 Global sphere
+    globalSphere.draw();
+
+    // 🔴 Heap spheres
+    for (Sphere* s : heapSpheres) {
+        if (s) s->draw();
+    }
+
+    // 🟡 Stack: se crea y se destruye en cada frame
+    createObjectInStack();  // se dibuja una temporal aquí
+}
+
+void ofApp::keyPressed(int key) {
+    if (key == 'h') {
+        createObjectInHeap();
+    }
+    else if (key == 'g') {
+        ofLog() << "Accediendo a esfera global: (" << globalSphere.x << ", " << globalSphere.y << ")";
+    }
+}
+
+void ofApp::createObjectInHeap() {
+    Sphere* s = new Sphere(ofRandomWidth(), ofRandomHeight(), 30);
+    heapSpheres.push_back(s);
+    ofLog() << "Esfera en heap: (" << s->x << ", " << s->y << ")";
+}
+
+void ofApp::createObjectInStack() {
+    Sphere s(ofRandomWidth(), ofRandomHeight(), 20);
+    s.draw();  // Se dibuja pero desaparece al terminar esta función
+}
+
+```
