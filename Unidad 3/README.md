@@ -285,9 +285,13 @@ Más tarde, cuando usas sphere->draw() en draw(), ¡el objeto sigue existiendo! 
 Puedes usarlo, moverlo, dibujarlo… todo sin errores.
 
 Acción                    |                  Stack              |             Heap
+
 ¿Quién lo gestiona?       | El sistema, automáticamente         | Tú (debes usar new y delete)
+
 ¿Cuánto vive la variable? | Solo dentro de la función           | Hasta que tú la borres
+
 ¿Riesgo de fallos?        | Sí, si accedes después de que muera | No, si la gestionas bien
+
 ¿Más rápido?              | Sí                                  | Un poco más lento
 
 ## Actividad 8
